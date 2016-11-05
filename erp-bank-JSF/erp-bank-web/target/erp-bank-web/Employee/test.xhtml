@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+    
+<h:head></h:head>
+<body>
+
+<ui:include src="/Employee/headerEmp.xhtml"/>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+						
+						<h2>Employees</h2>
+						<br/><br/>
+
+<h:form>
+<h:inputText value="#{testBean.sea}"  />
+<h:commandButton action="#{testBean.search()}" value="Search" />
+</h:form>
+<br></br><br></br>
+	<h:form>
+		<p:dataTable value="#{testBean.employees}" var="item" rows="10"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+			<p:column>
+				<f:facet name="header">ID</f:facet>#{item.id}</p:column>
+			<p:column>
+				<f:facet name="header">Name</f:facet>#{item.name}</p:column>
+			<p:column>
+				<f:facet name="header">LastName</f:facet>#{item.lastName}</p:column>
+			<p:column>
+				<f:facet name="header">Email</f:facet>#{item.email}</p:column>
+			<p:column>
+				<f:facet name="header">UserName</f:facet>#{item.userName}</p:column>
+			<p:column>
+				<f:facet name="header">Role</f:facet>#{item.role}</p:column>
+
+			<p:column>
+				<h:commandButton value="edit" action="#{testBean.Edit(item)}" />
+			</p:column>
+			<p:column>
+				<h:commandButton value="delete" action="#{testBean.delete(item)}" />
+			</p:column>
+		</p:dataTable>
+		 
+	</h:form>
+
+
+
+  
+	<h:panelGroup>
+	<br />
+	<div class="form-group">
+		<h:form>
+			<h:inputHidden value="#{testBean.employee.id}" />
+			<p>
+				Name:
+				<h:inputText value="#{testBean.employee.name}" class="form-control"
+					style=" width : 200px;" />
+			</p>
+			<p>
+				Last name:
+				<h:inputText value="#{testBean.employee.lastName}" class="form-control"
+					style=" width : 200px;" />
+			</p>
+			<p>
+				Email:
+				<h:inputText value="#{testBean.employee.email}" class="form-control"
+					style=" width : 200px;" />
+			</p>
+			<p>
+				Login:
+				<h:inputText value="#{testBean.employee.userName}" class="form-control"
+					style=" width : 200px;" />
+			</p>
+			
+			<p>
+			<h:outputText value="PassWord: " />
+        <p:password id="feedback" value="#{testBean.employee.passWord}" feedback="true" class="form-control"/>
+        </p>
+			<p>
+				Role:
+				<h:outputText value="Role" />
+			<h:selectOneMenu value="#{testBean.employee.role}" class="form-control">
+				<f:selectItem itemValue="HR Manager" itemLabel="HR Manager" />
+				<f:selectItem itemValue="Inventory Manager"
+					itemLabel="Inventory Manager" />
+				<f:selectItem itemValue="Financial Manager"
+					itemLabel="Financial Manager" />
+			</h:selectOneMenu>
+			</p>
+
+
+			<p>
+				<h:commandButton action="#{testBean.doEdit()}"
+					value="#{testBean.employee.id !=0 ? 'Update' : 'Add'}"  class="btn btn-default"/>
+				<h:commandButton value="cancel" action="#{testBean.cancelEdit()}"  class="btn btn-default"/>
+			</p>
+		</h:form>
+	</div>
+	</h:panelGroup>
+
+	</div></div></div>
+	
+	<script type="text/javascript">
+
+var dcf = 'GBP';
+var dct = 'EUR';
+var w = '200';
+var h = '250';
+var f = 'arial';
+var fs = '11';
+var fc = '000000';
+var bgc = 'f8fbf8';
+var tf = 'arial';
+var tfs = '14';
+var tc = '2E64DF';
+var tbc = 'E0EADF';
+var tz = 'userset';
+
+</script>
+<script type="text/javascript" src="http://www.currency.me.uk/remote/ER-CC-1.php"></script>
+<br /><br />
+<center>
+<!-- MORTGAGE LOAN CALCULATOR BEGIN -->
+<script type="text/javascript">
+mlcalc_default_calculator = 'loan';
+mlcalc_currency_code = 'DT';
+mlcalc_amortization = 'month_nc';
+mlcalc_purchase_price = '300,000';
+mlcalc_down_payment = '20';
+mlcalc_mortgage_term = '30';
+mlcalc_interest_rate = '4.5';
+mlcalc_property_tax = '3,000';
+mlcalc_property_insurance = '1,500';
+mlcalc_pmi = '0.52';
+mlcalc_loan_amount = '250,000';
+mlcalc_loan_term = '15';
+</script>
+<script type="text/javascript">if(typeof jQuery == "undefined"){document.write(unescape("%3Cscript src='" + (document.location.protocol == 'https:' ? 'https:' : 'http:') + "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));mlcalc_jquery_noconflict=1;};</script><div style="font-weight:normal;font-size:9px;font-family:Tahoma;padding:0;margin:0;border:0;text-align:center;background:transparent;color:#EEEEEE;width:300px;text-align:right;padding-right:10px;" id="mlcalcWidgetHolder"><script type="text/javascript">document.write(unescape("%3Cscript src='" + (document.location.protocol == 'https:' ? 'https://ssl.mlcalc.com' : 'http://cdn.mlcalc.com') + "/widget-wide.js' type='text/javascript'%3E%3C/script%3E"));</script><a href="http://www.mlcalc.com//" style="font-weight:normal;font-size:9px;font-family:Tahoma;color:#EEEEEE;text-decoration:none;">Mortgage Loan Calculator</a></div>
+<!-- MORTGAGE LOAN CALCULATOR END -->
+</center>
+
+
+ <ui:include src="/WEB-INF/template/footer.xhtml" />
+
+</body>
+</html>

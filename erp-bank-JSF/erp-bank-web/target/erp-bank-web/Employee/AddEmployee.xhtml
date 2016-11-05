@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+
+
+		<h:outputText value="Employee Name" />
+		<br></br>
+		<p:inputText value="#{addEmployeeBean.name}" />
+		<br></br>
+
+		<h:outputText value="Last Name" />
+		<br></br>
+		<p:inputText value="#{addEmployeeBean.lastname}" />
+		<br></br>
+	<h:outputText value="Username " />
+		<br></br>
+		<p:inputText value="#{addEmployeeBean.username}" />
+		<br></br>
+		
+			<h:outputText value="email" />
+		<br></br>
+		<p:inputText value="#{addEmployeeBean.email}" />
+		<br></br>
+		
+			<h:outputText value="password" />
+		<br></br>
+		<p:password value="#{addEmployeeBean.password}" ></p:password> 
+		<br></br>
+		
+		
+		<h:outputText value="Role" />
+		<br></br>
+		<p:selectOneMenu value="#{addEmployeeBean.role}">
+			<f:selectItem itemLabel="Select Role" itemValue="" />
+			<f:selectItem itemLabel="HR Manager" itemValue="HR Manager" />
+			<f:selectItem itemLabel="Financial Manager" itemValue="Financial Manager" />
+			<f:selectItem itemLabel="Inventory Manager" itemValue="Inventory Manager" />
+			<f:selectItem itemLabel="Client" itemValue="Client" />
+		</p:selectOneMenu>
+
+
+
+
+		<p:commandButton action="#{addEmployeeBean.doRegister()}" value="add" />
+	</h:form>
+
+</h:body>
+</html>

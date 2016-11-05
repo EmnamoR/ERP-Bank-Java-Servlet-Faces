@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>Candidacy's list</h:head>
+<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js">
+
+
+</script>
+<h:body>
+<ui:include src="/Employee/headerEmp.xhtml"/>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+<h:form>
+		</h:form>
+		<h:form>
+			<h:dataTable class="table table-bordered" border="2" value="#{candidacyBean.candidatures}" var="c">
+				<h:column id="column1">
+					<f:facet name="header">
+						<h:outputText value="First Name"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.name}" />
+				</h:column>
+				<h:column id="column2">
+					<f:facet name="header">
+						<h:outputText value="Last Name"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.lastName}" />
+				</h:column>
+				<h:column id="column3">
+					<f:facet name="header">
+						<h:outputText value="State"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.state}" />
+				</h:column><h:column id="column4">
+					<f:facet name="header">
+						<h:outputText value="Role"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.role}" />
+				</h:column>
+				<h:column id="column5">
+					<f:facet name="header">
+						<h:outputText value="Email"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.email}" />
+				</h:column>
+				<h:column id="column6">
+					<f:facet name="header">
+						<h:outputText value="CV"></h:outputText>
+					</f:facet>
+		<a href="#{c.cv}">
+			<img src="../assets/images/cv.png"/>
+         
+        </a>				
+        </h:column>
+<h:column id="column7">
+					<f:facet name="header">
+						<h:outputText value="Fix Appintement"></h:outputText>
+					</f:facet>
+				
+
+
+
+<h:commandButton styleclass="btn read-more pull-left" value="Fix Appintement" 
+action="#{candidacyBean.doShowDetails(c)}">
+	</h:commandButton>
+	
+        </h:column>
+			</h:dataTable>
+			</h:form>
+			</div></div></div>
+			 <ui:include src="/WEB-INF/template/footer.xhtml" />
+</h:body>
+</html>

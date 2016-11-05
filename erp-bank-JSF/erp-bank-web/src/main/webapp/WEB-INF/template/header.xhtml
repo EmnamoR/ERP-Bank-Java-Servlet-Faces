@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+<title>nieze</title>
+<ui:include src="/WEB-INF/template/imports.xhtml" />
+</h:head> 
+
+<body class="home">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html"><h:graphicImage value="/resources/images/logo.png" /></a>
+			
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><h:outputLink value="/erp-bank-web/index.jsf">Home</h:outputLink></li>
+					<li><h:outputLink value="/erp-bank-web/about.jsf">About</h:outputLink></li>
+					
+				
+					<li><h:outputLink value="/erp-bank-web/candidacy/addCandidacy.jsf">Condidate</h:outputLink></li>
+					<li><h:outputLink rendered="#{!loginBean.loggedIn}" value="/erp-bank-web/login.jsf" class="btn">SIGN IN / SIGN UP</h:outputLink></li>
+					<li><h:outputLink rendered="#{loginBean.loggedIn}" value="/erp-bank-web/index.jsf" class="btn">#{loginBean.login}</h:outputLink></li>
+					<li>
+<h:form>
+<h:commandButton rendered="#{loginBean.loggedIn}" action="#{loginBean.doLogout()}" value="Logout" class="btn btn-secondary-outline"/>					
+				</h:form>
+				</li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
+</body></html>

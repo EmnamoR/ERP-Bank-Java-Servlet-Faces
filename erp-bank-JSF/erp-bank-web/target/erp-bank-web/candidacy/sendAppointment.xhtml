@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
+    <h:head>
+        <title>Send Appointment</title>
+        <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                
+               
+                Subject:
+                <h:panelGroup>
+                    <h:inputText class="form-control" size="30" id="subject"
+                                 value="#{clientBean.subject}"
+                                 required="true"
+                                 requiredMessage="Required"/>
+                    <h:message for="subject" style="color:red"/>
+                </h:panelGroup>
+                
+                Message:
+                <h:panelGroup>
+                    <h:inputTextarea class="form-control" rows="15"  id="message"
+                                     value="#{clientBean.message}"
+                                     required="true"
+                                     requiredMessage="Required"/>
+                    <h:message for="message" style="color:red"/>
+                </h:panelGroup>
+                
+                <h:commandButton class="btn btn-default" value="Send" action="#{clientBean.send(candidacyBean.selected.email)}"/>
+                <h:outputText value="#{clientBean.statusMessage}" style="color:red"/>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
